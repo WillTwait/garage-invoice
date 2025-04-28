@@ -44,7 +44,7 @@ export async function fetchListingData(id: string) {
 }
 
 export function mapListingToInvoiceData(listing: any, requestorEmail: string): InvoiceData {
-  // gross, but like i said above ideally we know the reutrn type here
+  // gross, but like i said above ideally we know the return type here
   const {
     id,
     listingTitle,
@@ -108,10 +108,7 @@ export function mapListingToInvoiceData(listing: any, requestorEmail: string): I
     },
 
     pricing: {
-      originalPrice,
-      finalPrice: finalPrice || originalPrice,
-      taxes: 0, // update if needed
-      totalAmountDue: finalPrice || originalPrice,
+      price: finalPrice || originalPrice,
     },
 
     images: imageUrls,

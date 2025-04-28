@@ -22,21 +22,19 @@ export interface InvoiceData {
       height?: number; // in
       arialLength?: number; // ft
     };
-    weight: number;
-    tankSize: number;
-    pumpCapacity: number;
-    serviceRecordsAvailable: boolean;
-    rustPresent: boolean;
-    pumpTestAvailable: boolean;
+    weight?: number;
+    tankSize?: number;
+    pumpCapacity?: number;
+    serviceRecordsAvailable?: boolean;
+    rustPresent?: boolean;
+    pumpTestAvailable?: boolean;
     listingId: string;
     dateListed: string;
     lastUpdated: string;
   };
   pricing: {
-    originalPrice: number;
-    finalPrice: number;
-    taxes: number;
-    totalAmountDue: number;
+    price: number;
+    // TODO: would add other details here, but dont really know what our schema looks like
   };
   images: string[];
   contactInfo: string;
