@@ -1,15 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  PDFDownloadLink,
-} from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
 import { InvoiceData } from '../models/types';
 
 export default function InvoicePDF({ invoiceData }: { invoiceData: InvoiceData }) {
@@ -30,7 +22,7 @@ export default function InvoicePDF({ invoiceData }: { invoiceData: InvoiceData }
           <Text style={styles.vehicleTitle}>{invoiceData.details.title}</Text>
         </View>
 
-        {/* Main Image if available */}
+        {/* Main Image */}
         {invoiceData.images && invoiceData.images.length > 0 && (
           <Image style={styles.image} src={invoiceData.images[0]} />
         )}
@@ -180,16 +172,6 @@ export default function InvoicePDF({ invoiceData }: { invoiceData: InvoiceData }
     </Document>
   );
 }
-
-export const InvoiceDownloadLink = ({ invoiceData }: { invoiceData: InvoiceData }) => (
-  <PDFDownloadLink
-    document={<InvoicePDF invoiceData={invoiceData} />}
-    fileName={`invoice-${invoiceData.details.title.replace(/\s+/g, '-')}.pdf`}
-    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-  >
-    {({ loading }) => (loading ? 'Preparing PDF...' : 'Download Invoice')}
-  </PDFDownloadLink>
-);
 
 const styles = StyleSheet.create({
   page: {

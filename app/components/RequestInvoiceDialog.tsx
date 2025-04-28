@@ -87,7 +87,10 @@ export function RequestInvoiceDialog() {
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <Button size="lg" className="px-6 py-3 text-lg w-full h-full">
+        <Button
+          size="lg"
+          className="px-6 py-3 text-lg font-bold w-full h-full bg-orange-500 hover:bg-orange-600"
+        >
           <FileDown className="size-6 mr-2" />
           Request PDF Invoice
         </Button>
@@ -203,7 +206,8 @@ export function RequestInvoiceDialog() {
                 <PDFDownloadLink
                   document={<InvoicePDF invoiceData={invoiceData} />}
                   fileName={`invoice-${invoiceData.details.title.replace(/\s+/g, '-')}.pdf`}
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                  // basically same class as shadcn primary button
+                  className="inline-flex items-center justify-center rounded-md text-sm font-medium disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                 >
                   {({ loading }) => (loading ? 'Preparing PDF...' : 'Download Invoice')}
                 </PDFDownloadLink>
