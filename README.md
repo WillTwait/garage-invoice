@@ -16,7 +16,7 @@ To run the app, start your development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to use the export component!
+Open [http://localhost:3000](http://localhost:3000) to use the PDF Invoice Generator component!
 
 I also have the project published at https://garage-invoice.twait.dev/ right now if you want to try without local development.
 
