@@ -35,3 +35,5 @@ The main issue I ran into was not really knowing what our schema looks like for 
 For example, I ran into an issue where two different listing had different pricing responses (things like `finalPrice`, etc), so I was getting an error trying to access fields that didn't exist. Same thing for `arielLength`, which exists on some trucks but not others. I think this issue would be pretty easily handled if I knew the exact schema/return types for the getListing API.
 
 Another feature I left out was the email generation, instead opting for just client-side functionality. If I was really building out this feature, I would probably have some sort of server-side email service to send the pdf on request.
+
+Finally, I've really only tested on desktop, and haven't really built in mobile-optimized styling. If I was building out this feature completely, we would want to make sure everything is looking good on mobile screens!
