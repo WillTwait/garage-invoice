@@ -45,6 +45,7 @@ describe('Services Test', () => {
 
       const invoice = await fetchInvoiceData(spartanUUID, 'test@test.com');
       expect(invoice.details.title).toBe('1997 Spartan/Saulsbury Engine');
+      expect(invoice.pricing.price).toBe(30000);
       expect(invoice.details.year).toBe(1997);
       expect(invoice.details.dimensions.length).toBe(355);
       expect(invoice.details.dimensions.width).toBe(96);

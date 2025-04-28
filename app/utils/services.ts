@@ -1,16 +1,5 @@
 import type { InvoiceData } from '../models/types';
 import { v4 as uuidv4 } from 'uuid';
-export interface ListingData {
-  id: string;
-  title?: string;
-  description?: string;
-  make?: string;
-  model?: string;
-  year?: number;
-  price?: number;
-  condition?: string;
-  images?: string[];
-}
 
 // garage urls follow /listing/{truck-name}-{uuid} format
 // this extracts the uuid to use for our api call
@@ -44,7 +33,7 @@ export async function fetchListingData(id: string) {
 }
 
 export function mapListingToInvoiceData(listing: any, requestorEmail: string): InvoiceData {
-  // gross, but like i said above ideally we know the reutrn type here
+  // gross, but like i said above ideally we know the return type here
   const {
     id,
     listingTitle,
@@ -63,8 +52,7 @@ export function mapListingToInvoiceData(listing: any, requestorEmail: string): I
     hasServiceRecords,
     hasRust,
     hasPumpTest,
-    originalPrice,
-    finalPrice,
+    sellingPrice,
     createdAt,
     updatedAt,
     imageUrls = [],
@@ -108,10 +96,7 @@ export function mapListingToInvoiceData(listing: any, requestorEmail: string): I
     },
 
     pricing: {
-      originalPrice,
-      finalPrice: finalPrice || originalPrice,
-      taxes: 0, // update if needed
-      totalAmountDue: finalPrice || originalPrice,
+      price: sellingPrice,
     },
 
     images: imageUrls,
